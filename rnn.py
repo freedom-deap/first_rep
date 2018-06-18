@@ -3,6 +3,7 @@ Created on 2018/06/16
 
 @author: freed
 '''
+#TenserFlow‚É‚æ‚éŠÈ’P‚ÈLSTMÀ‘•‚Ì—áinot©ìj
 import tensorflow as tf
 import numpy as np
 import random
