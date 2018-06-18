@@ -147,4 +147,5 @@ with tf.Graph().as_default():
 
         calc_accuracy(output_op, prints=True)
         datas = sess.run(datas_op)
-        saver.save(sess, "model.ckpt")
+        cwd = os.getcwd()
+        saver.save(sess, cwd + "//model.ckpt") #saveの際に絶対パスを渡さないとディレクトリがないとエラーが出るのでパスを取得し、引数として渡す
