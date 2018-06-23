@@ -5,3 +5,4 @@ Created on 2018/06/22
 @author: lab
 '''
 
+import MeCab
