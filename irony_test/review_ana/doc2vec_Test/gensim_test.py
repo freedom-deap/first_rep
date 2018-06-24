@@ -31,7 +31,7 @@ def split_into_words(doc,name=''):
 def train(sentences):
     model = models.Doc2Vec(size=400, alpha=0.0015, sample=1e-4, min_count=1, workers=4)
     model.build_vocab(sentences)
-    for x in range(100):
+    for x in range(70):
         print(x)
         model.train(sentences, total_examples=model.corpus_count, epochs=model.iter)
         ranks = []
