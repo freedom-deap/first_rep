@@ -23,7 +23,7 @@ def split_into_words(doc,name=''):
     for line in lines:
         chunks = line.split('\t')
         if len(chunks) > 3 and (chunks[3].startswith('動詞') or chunks[3].startswith('形容詞') or (chunks[3].startswith('名詞') and not chunks[3].startswith('名詞-数'))):
-            words.append(chunks[0])
+            words.append(chunks[2])
     return LabeledSentence(words=words, tags=[name])
 
 # 学習

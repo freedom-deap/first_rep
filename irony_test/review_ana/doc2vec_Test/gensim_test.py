@@ -31,7 +31,7 @@ def split_into_words(doc,name=''):
 def train(sentences):
     model = models.Doc2Vec(size=400, alpha=0.0015, sample=1e-4, min_count=1, workers=4)
     model.build_vocab(sentences)
-    for x in range(30):
+    for x in range(100):
         print(x)
         model.train(sentences, total_examples=model.corpus_count, epochs=model.iter)
         ranks = []
@@ -52,6 +52,15 @@ m = MeCab.Tagger('-Ochasen')
 OUTPUT_MODEL = 'doc2vec.model'
 PASSING_PRECISION = 93
 lines = [line for line in f.readlines()]
-sentences = [split_into_words(line,) for line in lines]
+x = 0
+sentences = []
+#sentences = [split_into_words(line,) for line in lines]
+for line in lines:
+    sentences.append(split_into_words(line,"sentence"+str(x)))
+    x = x + 1
 model = train(sentences)
 model.save(OUTPUT_MODEL)
+model = models.Doc2Vec.load("doc2vec.model")
+#for result in model.most_similar([""]):
+#            print(result[0] + ":" + str(result[1]))
+print(model.docvecs.most_similar(["sentence0"]))
